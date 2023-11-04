@@ -11,3 +11,10 @@ If what you want is to run it periodically use
 chmod +x folderSorter/__init__.py
 watch -n [interval] folderSorter/__init__.py
 ```
+
+## Configuration
+All configurations are done inside `config.py` file.
+You can change folders' names and what extensions go where changing `FOLDERS`.
+You can change whether you want to move all folders into a single one called `Directories` changing `SORT_DIRS`.
+You can exclude some folders to be moved into this folder by adding their names to `excluded`.
+You can change whether you want to move files with extensions not listed in `FOLDERS`  changing `SORT_OTHERS`.

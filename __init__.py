@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 
+from typing import Dict
 from config import FOLDERS, DIR_TO_SORT, SORT_OTHERS, SORT_DIRS
 import os
 from datetime import datetime
+
+DIR_TO_SORT = DIR_TO_SORT.replace("~", os.environ["HOME"] + "/")
 
 def extension(file: str) -> str:
     extension = ""
