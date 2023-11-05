@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from typing import Dict
-from config import FOLDERS, DIR_TO_SORT, SORT_OTHERS, SORT_DIRS
+from config import DIRECTORIES, DIR_TO_SORT, SORT_OTHERS, SORT_DIRS
 import os
 from datetime import datetime
 
@@ -22,14 +22,14 @@ def sort_files():
     files = [name for name in os.listdir(DIR_TO_SORT) if not os.path.isdir(os.path.join(DIR_TO_SORT, name))]
     for file in files:
         file_extension = extension(file)
-        for (folder, extensions) in FOLDERS.items():
+        for (directory, extensions) in DIRECTORIES.items():
             if file_extension in extensions:
-                if not os.path.exists(os.path.join(DIR_TO_SORT, folder)):
-                    os.mkdir(os.path.join(DIR_TO_SORT, folder))
-                # Move the file inside the corresponding folder
+                if not os.path.exists(os.path.join(DIR_TO_SORT, directory)):
+                    os.mkdir(os.path.join(DIR_TO_SORT, directory))
+                # Move the file inside the corresponding directory
                 os.rename(
                     os.path.join(DIR_TO_SORT, file),
-                    os.path.join(DIR_TO_SORT, folder, file)
+                    os.path.join(DIR_TO_SORT, directory, file)
                 )
         if SORT_OTHERS:
             if os.path.exists(os.path.join(DIR_TO_SORT, file)):
@@ -57,7 +57,7 @@ def main():
     from config import excluded
 
     sort_files()
-    excluded += excluded + list(FOLDERS.keys())
+    excluded += excluded + list(DIRECTORIES.keys())
     if SORT_OTHERS:
         excluded.append("Others")
     if SORT_DIRS:
