@@ -8,7 +8,7 @@ If you want to run it once simply run
 ```
 If what you want is to run it periodically use 
 ```bash
-watch -n [interval] dirSorter/__init__.py
+watch -n [interval (seconds)] dirSorter/__init__.py
 ```
 *Note that if you restart your computer the script will stop running periodically, for solving that, place the previous command somewhere executed at startup (for isntance, `.bashrc` if you're using bash)*
 
